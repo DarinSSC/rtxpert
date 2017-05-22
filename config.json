@@ -1,0 +1,144 @@
+{
+  "localSet": {
+    "protocol": "ospf",
+    "asNum": 100,
+    "areaId": "49.0001",
+    "isHQ": 1,
+    "interval": 1,
+    "inAdvance": 8,
+    "topN": 20,
+    "localFlowQueryPort": 2222,
+    "baseUrl": "\/rtxpert\/index.php",
+    "localIp": "127.0.0.1",
+    "localDBSet": {
+      "ip": "127.0.0.1",
+      "port": "3306",
+      "dbname": "rtxpert",
+      "username": "root",
+      "password": "qazwsx"
+    },
+    "observePorts": [
+      {
+        "protocol": "ftp",
+        "protocolNum": "6",
+        "ports": [
+          20,
+          21
+        ]
+      },
+      {
+        "protocol": "telnet",
+        "protocolNum": "6",
+        "ports": [
+          23
+        ]
+      },
+      {
+        "protocol": "wirev",
+        "protocolNum": "6",
+        "ports": [
+          2008
+        ]
+      },
+      {
+        "protocol": "asdf",
+        "protocolNum": "17",
+        "ports": [
+          45,
+          46
+        ]
+      },
+      {
+        "protocol": "http",
+        "protocolNum": "6",
+        "ports": [
+          80,
+          8080,
+          8081
+        ]
+      }
+    ],
+    "flowDeviceSet": {
+      "ipList": [
+        "53.251.254.80",
+        "53.251.254.140",
+        "53.251.254.102",
+        "53.251.254.79"
+      ],
+      "devInfo": [
+        {
+          "devIp": "53.251.254.80",
+          "devId": "2211234",
+          "devName": "\u6d41\u91cf\u6c47\u96c6_80"
+        },
+        {
+          "devIp": "53.251.254.140",
+          "devId": "2211140",
+          "devName": "\u6d41\u91cf\u6c47\u96c6_140"
+        },
+        {
+          "devIp": "53.251.254.102",
+          "devId": "2211002",
+          "devName": "\u6d41\u91cf\u6c47\u96c6_102"
+        },
+        {
+          "devIp": "53.251.254.79",
+          "devId": "53251079",
+          "devName": "\u6d41\u91cf\u6c47\u96c6_79"
+        }
+      ],
+      "url_Level1": "127.0.0.1",
+      "url_Level2": "0",
+      "configPort": 7890,
+      "topoPort": 2012,
+      "flowPort": 3333,
+      "samplingRate": 1000
+    },
+    "gloabalAnalysisSet": {
+      "globalAnalysisIp": "127.0.0.1",
+      "globalAnalysisPort": 33355
+    },
+    "isisIpIdMapping": [
+      {
+        "sysId": "0000.0000.0003.00",
+        "ip": [
+          "192.168.0.1",
+          "192.168.0.2"
+        ]
+      }
+    ]
+  },
+  "HQSet": {
+    "asSet": [
+      {
+        "asNum": "10",
+        "asIp": "10.21.3.229"
+      },
+      {
+        "asNum": "100",
+        "asIp": "10.21.3.159"
+      }
+    ],
+    "areaSet": [
+      {
+        "areaId": "1.1.1.1",
+        "areaIp": "127.0.0.1"
+      }
+    ]
+  },
+  "styleSet": {
+    "canvasWidth": 3000,
+    "canvasHeight": 2000,
+    "defaultLinkColor": "#4682b4",
+    "trafficWarningColorSet": [
+      {
+        "percentage": 80,
+        "color": "#FF0000"
+      },
+      {
+        "percentage": 50,
+        "color": "#FFFF00"
+      }
+    ]
+  }
+}
