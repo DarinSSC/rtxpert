@@ -193,6 +193,18 @@ public function prefixQueryAjax(){
     exit;
 }
 
+public function asTopo(){
+    //预检查
+    $this->_pre_control('as_topo');
+    $data[] = array();
+    //与model交互，获取数据
+    $this->load->model('as_topo');
+    $result = $this->as_topo->getAsTopo();
+
+    //加载界面
+    $this->load->view('as_topo', $result);
+}
+
 
   /**
    * 告警日志
