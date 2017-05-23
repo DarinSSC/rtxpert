@@ -33,7 +33,6 @@ class as_topo extends CI_Model
         $this->db->order_by("create_time", "desc");
         $query = $this->db->get();
         //获得内容
-        //这里看之前的代码，说要访问两次数据库，但我没看出来为什么
         $ret['as_list'] = array();
         $ret['inter_link'] = array();
         $ret['inner_link'] = array();
@@ -41,17 +40,17 @@ class as_topo extends CI_Model
             //首先判断在$ret['as_list']中是否已经存在这个AS
             if(!in_array($row['as_num'], $ret['as_list'], true)){
                 $ret['as_list'][] = $row['as_num'];
-                $ret['inner_link'][] = array($row['as_num'] => array());
+                $ret['inner_link'][$row['as_num']] = array();
             }
             if(!in_array($row['n_as_num'], $ret['as_list'], true)){
                 $ret['as_list'][] = $row['n_as_num'];
-                $ret['inner_link'][] = array($row['n_as_num'] => array());
+                $ret['inner_link'][$row['n_as_num']] = array();
             }
             //通过上面的代码，保证了这条记录出现的as一定在$ret['as_list']和$ret['inner_link']中有记录
             if($row['link_type'] == 11){//域间的Link
                 $index = $this->itemAlreadyExist($row['as_num'], $row['n_as_num'], $ret['inter_link']);
-                echo $index;
-                echo 'zzzzzzzzzzzzzz';
+//                echo $index;
+//                echo 'zzzzzzzzzzzzzz';
                 if($index > -1){//已经存在
                     $ret['inter_link'][$index]['links'][] = array('src'=>$row['router_id'], 'dest'=>$row['n_router_id']);
                 }else{

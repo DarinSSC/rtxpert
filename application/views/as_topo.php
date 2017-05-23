@@ -1,41 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <head>
+    <script src="<?php echo base_url(); ?>application/views/js/jquery-1.9.1.js"></script>
 </head>
 <body>
-<h1>as_list</h1>
-<ul>
-    <?php foreach ($as_list as $as){?>
-        <li>
-            <?=$as?>
-        </li>
-    <?php } ?>
-</ul>
-<h1>inter_link</h1>
-<ul>
-    <?php foreach ($inter_link as $cur_link){?>
-        <li>
-            <?=$cur_link['src_as']?>=><?=$cur_link['dest_as']?>
-            <?php foreach ($cur_link['links'] as $links){?>
-                <li>
-                    <?=$links['src']?>=><?=$links['dest']?>
-                </li>
-        <?php } ?>
-        </li>
-    <?php } ?>
-</ul>
-<br/><br/><br/>
-<h1>inner_link</h1>
-<ul>
-    <?php foreach ($as_list as $as){?>
-        <?=$as ?>
-        <?php foreach ($inner_link[$as] as $cur_link){?>
-            <li>
-                <?=$cur_link['src']?>=><?=$cur_link['dest']?>
-            </li>
-        <?php } ?>
-        <br/>
-    <?php } ?>
-</ul>
+
 </body>
+<script type="text/javascript">
+    $.ajax({
+        type: "GET",
+        async:false,
+        url: "<?php echo base_url(); ?>index.php/index/asTopoAjax",
+        success: function(data){
+            console.log(data);
+            //            var d = JSON.parse(data);
+            console.log(JSON.parse(data));
+        }
+    });
+</script>
 </html>

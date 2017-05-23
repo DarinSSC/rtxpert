@@ -197,14 +197,30 @@ public function asTopo(){
     //预检查
     $this->_pre_control('as_topo');
     $data[] = array();
+
+    //加载界面
+    $this->load->view('as_topo');
+
+}
+public function asTopoAjax(){
     //与model交互，获取数据
     $this->load->model('as_topo');
     $result = $this->as_topo->getAsTopo();
-
-    //加载界面
-    $this->load->view('as_topo', $result);
+    echo json_encode($result);
+    exit;
 }
 
+public function prefixWarning(){
+    //预检查
+    $this->_pre_control('prefix_warning');
+//    $data[] = array();
+
+    $this->load->model('prefix_warning');
+    $data = $this->prefix_warning->getPrefixWarning();
+//    echo $data['withdraw_warning'][0]['code'];
+    //加载界面
+    $this->load->view('prefix_warning', $data);
+}
 
   /**
    * 告警日志
